@@ -1,7 +1,8 @@
 import Head from 'next/head';
+import SidebarFilter from 'components/SidebarFilter';
 import styles from '../styles/Home.module.scss';
 
-export default function Home() {
+const Home = () => {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,10 +13,14 @@ export default function Home() {
       <div className="container mx-auto px-4">
         <h1 className="text-3xl font-semibold mb-4">Comparison</h1>
         <div className="grid grid-cols-12 gap-x-4">
-          <p className="col-span-3 font-sans">Sidebar</p>
-          <p className="col-span-9 font-serif">Content</p>
+          <div className="col-span-3 font-sans">
+            <SidebarFilter />
+          </div>
+          <div className="col-span-9 font-serif">Content</div>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Home;
