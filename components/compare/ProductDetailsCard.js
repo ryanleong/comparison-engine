@@ -1,8 +1,26 @@
 import PropTypes from 'prop-types';
+import { useItem } from 'utils/api';
 
 const ProductDetailsCard = (props) => {
-  const { col } = props;
+  const { col, id } = props;
   const classColStart = `col-start-${col * 4}`;
+  const [item, isLoading, isError] = useItem(id);
+
+  if (isLoading) {
+    return (
+      <div className={`col-span-4 border-b row-start-2 ${classColStart}`}>
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className={`col-span-4 border-b row-start-2 ${classColStart}`}>
+        <p>Unable to load item.</p>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -47,6 +65,7 @@ ProductDetailsCard.defaultProps = {
 
 ProductDetailsCard.propTypes = {
   col: PropTypes.number,
+  id: PropTypes.number.isRequired,
 };
 
 export default ProductDetailsCard;

@@ -1,0 +1,60 @@
+{
+  "specLabels": [
+    {
+      "id": "dimensionsUnfolded",
+      "label": "Dimensions (Unfolded)"
+    },
+    {
+      "id": "dimensionsFolded",
+      "label": "Dimensions (Folded)"
+    },
+    {
+      "id": "dimensionsFoldedWithoutSeat",
+      "label": "Dimensions (Folded without seat)"
+    },
+    {
+      "id": "weight",
+      "label": "Weight"
+    },
+    {
+      "id": "maxWeightCapacity",
+      "label": "Max Weight Capacity"
+    },
+    {
+      "id": "oneHandledFold",
+      "label": "One Handed fold"
+    },
+    {
+      "id": "numOfWheels",
+      "label": "Wheels"
+    },
+    {
+      "id": "suspension",
+      "label": "Suspension"
+    },
+    {
+      "id": "brake",
+      "label": "Brake"
+    },
+    {
+      "id": "harness",
+      "label": "Harness"
+    },
+    {
+      "id": "adjustableHandleBar",
+      "label": "Adjustable Handle bar"
+    },
+    {
+      "id": "carSeatCompatible",
+      "label": "Convetable to car seat"
+    },
+    {
+      "id": "reversibleSeat",
+      "label": "Reversible seat"
+    },
+    {
+      "id": "others",
+      "label": "Others"
+    }
+  ]
+}

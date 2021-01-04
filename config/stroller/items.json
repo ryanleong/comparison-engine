@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "model": "City Mini GT2 Stroller",
+      "brand": "Baby Jogger",
+      "specs": {
+        "dimensionsUnfolded": "41\" x 25.7\" x 42.8\"",
+        "dimensionsFolded": "13\" x 32.5\" x 25.7\"",
+        "dimensionsFoldedWithoutSeat": "",
+        "weight": "22 lbs",
+        "maxWeightCapacity": "65 lbs",
+        "oneHandledFold": "Yes",
+        "numOfWheels": 3,
+        "suspension": "All wheels",
+        "brake": "Hand Operated",
+        "harness": "5 - point stroller harness",
+        "adjustableHandleBar": "Yes",
+        "carSeatCompatible": "Yes",
+        "reversibleSeat": "Yes"
+      }
+    },
+    {
+      "id": 2,
+      "model": "Vista V2 Stroller - Jordan",
+      "brand": "UPPAbaby",
+      "specs": {
+        "dimensionsUnfolded": "41\" x 25.7\" x 42.8\"",
+        "dimensionsFolded": "13\" x 32.5\" x 25.7\"",
+        "dimensionsFoldedWithoutSeat": "",
+        "weight": "22 lbs",
+        "maxWeightCapacity": "65 lbs",
+        "oneHandledFold": "Yes",
+        "numOfWheels": 3,
+        "suspension": "All wheels",
+        "brake": "Hand Operated",
+        "harness": "5 - point stroller harness",
+        "adjustableHandleBar": "Yes",
+        "carSeatCompatible": "Yes",
+        "reversibleSeat": "Yes"
+      }
+    },
+    {
+      "id": 3,
+      "model": "Mark II Stroller",
+      "brand": "Maclaren",
+      "specs": {
+        "dimensionsUnfolded": "41\" x 25.7\" x 42.8\"",
+        "dimensionsFolded": "13\" x 32.5\" x 25.7\"",
+        "dimensionsFoldedWithoutSeat": "",
+        "weight": "22 lbs",
+        "maxWeightCapacity": "65 lbs",
+        "oneHandledFold": "Yes",
+        "numOfWheels": 3,
+        "suspension": "All wheels",
+        "brake": "Hand Operated",
+        "harness": "5 - point stroller harness",
+        "adjustableHandleBar": "Yes",
+        "carSeatCompatible": "Yes",
+        "reversibleSeat": "Yes"
+      }
+    }
+  ]
+}

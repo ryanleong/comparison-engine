@@ -36,5 +36,6 @@ module.exports = {
         aspects: ['invalidHref', 'preferButton'],
       },
     ],
+    'jsx-a11y/no-onchange': 'off',
   },
 };
