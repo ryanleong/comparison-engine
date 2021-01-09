@@ -1,10 +1,33 @@
+import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { withItemsConsumer } from 'contexts/AppContext';
 import { useItem } from 'utils/api';
 
 const ProductDetailsCard = (props) => {
-  const { col, id } = props;
+  const { col, id, appContext } = props;
   const classColStart = `col-start-${col * 4}`;
   const [item, isLoading, isError] = useItem(id);
+
+  useEffect(() => {
+    // Update context with item data
+    if (!isLoading && !isError) {
+      const { setItems } = appContext;
+      setItems(item, col - 1);
+    }
+  }, [item]);
+
+  const renderSpecs = () => {
+    return appContext.labels.map(({ id }, index) => {
+      const key = `${id}__${item.model}__${col}`;
+      const rowClass = `row-start-${index + 3}`;
+
+      return (
+        <div className={`col-span-4 py-6 border-b ${rowClass} ${classColStart}`} key={key}>
+          <span className="text-lg">{item.specs[id]}</span>
+        </div>
+      );
+    });
+  };
 
   if (isLoading) {
     return (
@@ -33,28 +56,11 @@ const ProductDetailsCard = (props) => {
           />
         </figure>
 
-        <h2 className="text-2xl font-semibold mb-2">City Mini GT2 Stroller</h2>
-        <p className="mb-4">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa saepe doloribus, pariatur
-          provident rerum, tempore reprehenderit iusto quam corrupti, facilis porro.
-        </p>
+        <h2 className="text-2xl font-semibold mb-2">{item?.model}</h2>
+        <p className="mb-4">{item?.description}</p>
       </div>
 
-      <div className={`col-span-4 py-6 border-b row-start-3 ${classColStart}`}>
-        <span className="text-lg">41&quot; x 25.7&quot; x 42.8&quot;</span>
-      </div>
-
-      <div className={`col-span-4 py-6 border-b row-start-4 ${classColStart}`}>
-        <span className="text-lg">41&quot; x 25.7&quot; x 42.8&quot;</span>
-      </div>
-
-      <div className={`col-span-4 py-6 border-b row-start-5 ${classColStart}`}>
-        <span className="text-lg">41&quot; x 25.7&quot; x 42.8&quot;</span>
-      </div>
-
-      <div className={`col-span-4 py-6 border-b row-start-6 ${classColStart}`}>
-        <span className="text-lg">41&quot; x 25.7&quot; x 42.8&quot;</span>
-      </div>
+      {renderSpecs()}
     </>
   );
 };
@@ -64,8 +70,12 @@ ProductDetailsCard.defaultProps = {
 };
 
 ProductDetailsCard.propTypes = {
+  appContext: PropTypes.shape({
+    labels: PropTypes.array.isRequired,
+    setItems: PropTypes.func.isRequired,
+  }).isRequired,
   col: PropTypes.number,
   id: PropTypes.number.isRequired,
 };
 
-export default ProductDetailsCard;
+export default withItemsConsumer(ProductDetailsCard);

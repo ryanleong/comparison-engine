@@ -1,20 +1,27 @@
-const ProdoctCompareSpecLabels = () => {
-  return (
-    <>
-      <div className="col-span-3 row-start-3 py-6">
-        <span className="text-lg">Dimensions (Folded)</span>
-      </div>
-      <div className="col-span-3 row-start-4 py-6">
-        <span className="text-lg">Dimensions (Unfolded)</span>
-      </div>
-      <div className="col-span-3 row-start-5 py-6">
-        <span className="text-lg">Dimensions (Unfolded)</span>
-      </div>
-      <div className="col-span-3 row-start-6 py-6">
-        <span className="text-lg">Dimensions (Unfolded)</span>
-      </div>
-    </>
-  );
+import PropTypes from 'prop-types';
+import { withItemsConsumer } from 'contexts/AppContext';
+
+const ProdoctCompareSpecLabels = (props) => {
+  const { appContext } = props;
+
+  const renderLabels = () => {
+    return appContext.labels.map(({ id, label }, index) => {
+      const classes = `col-span-3 row-start-${index + 3} col-start-1 py-6`;
+      return (
+        <div className={classes} key={id}>
+          <span className="text-lg">{label}</span>
+        </div>
+      );
+    });
+  };
+
+  return <>{renderLabels()}</>;
 };
 
-export default ProdoctCompareSpecLabels;
+ProdoctCompareSpecLabels.propTypes = {
+  appContext: PropTypes.shape({
+    labels: PropTypes.array.isRequired,
+  }).isRequired,
+};
+
+export default withItemsConsumer(ProdoctCompareSpecLabels);

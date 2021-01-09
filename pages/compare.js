@@ -1,11 +1,28 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
+import config from 'config/stroller/config.json';
+import withItemProvider, { withItemsConsumer } from 'contexts/AppContext';
 import ProductSelect from 'components/compare/ProductSelect';
 import ProductDetailsCard from 'components/compare/ProductDetailsCard';
 import ProdoctCompareSpecLabels from 'components/compare/ProdoctCompareSpecLabels';
 
-const Compare = () => {
+export async function getStaticProps() {
+  return {
+    props: {
+      config,
+    },
+  };
+}
+
+const Compare = ({ config, appContext }) => {
   const [itemIds, setItemIds] = useState([1, 1]);
+  // const [labelsUsed, setLabelsUsed] = useState([]);
+
+  useEffect(() => {
+    const { setConfig } = appContext;
+    setConfig(config);
+  }, []);
 
   const onItemSelect = (id, col) => {
     setItemIds((currentItemIds) => {
@@ -32,4 +49,13 @@ const Compare = () => {
   );
 };
 
-export default Compare;
+Compare.propTypes = {
+  appContext: PropTypes.shape({
+    setConfig: PropTypes.func.isRequired,
+  }).isRequired,
+  config: PropTypes.shape({
+    specLabels: PropTypes.array,
+  }).isRequired,
+};
+
+export default withItemProvider(withItemsConsumer(Compare));
