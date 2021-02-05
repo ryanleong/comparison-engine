@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import { createContext, useContext, useMemo, useState } from 'react';
-import flatten from 'lodash/flatten';
 
 /**
  * Context
@@ -30,7 +29,16 @@ const withItemProvider = (ChildComponent) => (props) => {
    * Callbacks
    */
   const setLabels = (configObj, itemSpecs, latestItems) => {
-    const latestItemsSpecsKeys = latestItems.map(({ specs }) => Object.keys(specs));
+    const latestItemsSpecsKeys = latestItems.map(({ specs }) => {
+      const specsEntries = Object.entries(specs);
+      return specsEntries.reduce((specsWithContent, [key, spec]) => {
+        if (spec && spec !== '') {
+          return [...specsWithContent, key];
+        }
+        return specsWithContent;
+      }, []);
+    });
+
     const allLabelKeys = latestItemsSpecsKeys.reduce(
       (usedLabelKeys, specKeys) => [...usedLabelKeys, ...specKeys],
       []

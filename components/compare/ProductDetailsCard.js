@@ -16,6 +16,15 @@ const ProductDetailsCard = (props) => {
     }
   }, [item]);
 
+  const renderOthersLists = (key, items) => {
+    const itemsEl = items.map((item) => (
+      <li className="list-disc text-lg" key={`${key}_${item}`}>
+        {item}
+      </li>
+    ));
+    return <ul>{itemsEl}</ul>;
+  };
+
   const renderSpecs = () => {
     return appContext.labels.map(({ id }, index) => {
       const key = `${id}__${item.model}__${col}`;
@@ -23,7 +32,11 @@ const ProductDetailsCard = (props) => {
 
       return (
         <div className={`col-span-4 py-6 border-b ${rowClass} ${classColStart}`} key={key}>
-          <span className="text-lg">{item.specs[id]}</span>
+          {id === 'others' ? (
+            renderOthersLists(key, item.specs[id])
+          ) : (
+            <span className="text-lg">{item.specs[id]}</span>
+          )}
         </div>
       );
     });
@@ -49,11 +62,7 @@ const ProductDetailsCard = (props) => {
     <>
       <div className={`col-span-4 border-b row-start-2 ${classColStart}`}>
         <figure className="mb-4 w-full h-72">
-          <img
-            className="object-cover h-full w-full"
-            src="https://picsum.photos/500/400"
-            alt="Product"
-          />
+          <img className="object-contain h-full w-full" src={item?.image} alt="Product" />
         </figure>
 
         <h2 className="text-2xl font-semibold mb-2">{item?.model}</h2>

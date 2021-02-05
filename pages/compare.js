@@ -16,7 +16,8 @@ export async function getStaticProps() {
 }
 
 const Compare = ({ config, appContext }) => {
-  const [itemIds, setItemIds] = useState([1, 1]);
+  const defaultItems = [1, 2];
+  const [itemIds, setItemIds] = useState(defaultItems);
   // const [labelsUsed, setLabelsUsed] = useState([]);
 
   useEffect(() => {
@@ -38,10 +39,10 @@ const Compare = ({ config, appContext }) => {
         <div className="grid grid-cols-11 gap-x-4">
           <ProdoctCompareSpecLabels />
 
-          <ProductSelect col={1} onItemSelect={onItemSelect} />
+          <ProductSelect col={1} onItemSelect={onItemSelect} defaultSelectedId={defaultItems[0]} />
           <ProductDetailsCard col={1} id={itemIds[0]} />
 
-          <ProductSelect col={2} onItemSelect={onItemSelect} />
+          <ProductSelect col={2} onItemSelect={onItemSelect} defaultSelectedId={defaultItems[1]} />
           <ProductDetailsCard col={2} id={itemIds[1]} />
         </div>
       </div>

@@ -9,7 +9,7 @@ const ProdoctCompareSpecLabels = (props) => {
       const classes = `col-span-3 row-start-${index + 3} col-start-1 py-6`;
       return (
         <div className={classes} key={id}>
-          <span className="text-lg">{label}</span>
+          <span className="text-lg font-bold">{label}</span>
         </div>
       );
     });

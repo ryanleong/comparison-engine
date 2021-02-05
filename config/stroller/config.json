@@ -41,8 +41,32 @@
       "label": "Harness"
     },
     {
-      "id": "adjustableHandleBar",
+      "id": "childMaxHeight",
+      "label": "Max Child Height"
+    },
+    {
+      "id": "childAge",
+      "label": "Child Age"
+    },
+    {
+      "id": "heightAdjustableHandle",
       "label": "Adjustable Handle bar"
+    },
+    {
+      "id": "seatBackHeight",
+      "label": "Height of seat back"
+    },
+    {
+      "id": "airFilledTires",
+      "label": "Air-filled Tires"
+    },
+    {
+      "id": "includesAirPump",
+      "label": "Includes Air Pump"
+    },
+    {
+      "id": "heightToHandlebar",
+      "label": "Handlebar Height"
     },
     {
       "id": "carSeatCompatible",
@@ -51,6 +75,18 @@
     {
       "id": "reversibleSeat",
       "label": "Reversible seat"
+    },
+    {
+      "id": "seatWeight",
+      "label": "Seat Weight"
+    },
+    {
+      "id": "chassisWeight",
+      "label": "Chassis Weight"
+    },
+    {
+      "id": "material",
+      "label": "Material"
     },
     {
       "id": "others",
