@@ -1,5 +1,6 @@
 module.exports = {
-  purge: ['./pages/**/*.js', './components/**/*.js'], // Remove unused styles in production
+  // TODO: Set up purgable CSS
+  // purge: ['./pages/**/*.js', './components/**/*.js'], // Remove unused styles in production
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
