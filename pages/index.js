@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import config from 'config/stroller/config.json';
-import withItemProvider, { withItemsConsumer } from 'contexts/AppContext';
+import withItemProvider, { withItemsConsumer } from 'contexts/ItemContext';
+import { useItem } from 'utils/api';
 import ProductSelect from 'components/compare/ProductSelect';
-import ProductDetailsCard from 'components/compare/ProductDetailsCard';
-import ProdoctCompareSpecLabels from 'components/compare/ProdoctCompareSpecLabels';
+import ProductDetailsTable from 'components/compare/ProductDetailsTable';
 
 export async function getStaticProps() {
   return {
@@ -16,15 +16,33 @@ export async function getStaticProps() {
   };
 }
 
-const Compare = ({ config, appContext }) => {
+const Compare = ({ config, itemContext }) => {
   const defaultItems = [1, 2];
   const [itemIds, setItemIds] = useState(defaultItems);
-  // const [labelsUsed, setLabelsUsed] = useState([]);
+  const [item1, isLoadingItem1] = useItem(itemIds[0]);
+  const [item2, isLoadingItem2] = useItem(itemIds[1]);
 
+  // On load
   useEffect(() => {
-    const { setConfig } = appContext;
+    const { setConfig } = itemContext;
     setConfig(config);
   }, []);
+
+  // On item 1 data update
+  useEffect(() => {
+    if (!isLoadingItem1) {
+      const { setItems } = itemContext;
+      setItems(item1, 0);
+    }
+  }, [item1]);
+
+  // On item 2 data update
+  useEffect(() => {
+    if (!isLoadingItem2) {
+      const { setItems } = itemContext;
+      setItems(item2, 1);
+    }
+  }, [item2]);
 
   const onItemSelect = (id, col) => {
     setItemIds((currentItemIds) => {
@@ -42,14 +60,10 @@ const Compare = ({ config, appContext }) => {
       </Head>
 
       <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-cols-11 gap-x-4">
-          <ProdoctCompareSpecLabels />
-
+        <div className="grid grid-flow-row grid-cols-11 gap-x-4">
           <ProductSelect col={1} onItemSelect={onItemSelect} defaultSelectedId={defaultItems[0]} />
-          <ProductDetailsCard col={1} id={itemIds[0]} />
-
           <ProductSelect col={2} onItemSelect={onItemSelect} defaultSelectedId={defaultItems[1]} />
-          <ProductDetailsCard col={2} id={itemIds[1]} />
+          <ProductDetailsTable />
         </div>
       </div>
     </div>
@@ -57,8 +71,9 @@ const Compare = ({ config, appContext }) => {
 };
 
 Compare.propTypes = {
-  appContext: PropTypes.shape({
+  itemContext: PropTypes.shape({
     setConfig: PropTypes.func.isRequired,
+    setItems: PropTypes.func.isRequired,
   }).isRequired,
   config: PropTypes.shape({
     specLabels: PropTypes.array,
