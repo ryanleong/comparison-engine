@@ -44,10 +44,10 @@ const Compare = ({ config, itemContext }) => {
     }
   }, [item2]);
 
-  const onItemSelect = (id, col) => {
+  const onItemSelect = (itemId, idx) => {
     setItemIds((currentItemIds) => {
       const updatedItemIds = [...currentItemIds];
-      updatedItemIds[col - 1] = id;
+      updatedItemIds[idx] = itemId;
       return updatedItemIds;
     });
   };
@@ -61,8 +61,7 @@ const Compare = ({ config, itemContext }) => {
 
       <div className="container mx-auto px-4 py-6">
         <div className="grid grid-flow-row grid-cols-11 gap-x-4">
-          <ProductSelect col={1} onItemSelect={onItemSelect} defaultSelectedId={defaultItems[0]} />
-          <ProductSelect col={2} onItemSelect={onItemSelect} defaultSelectedId={defaultItems[1]} />
+          <ProductSelect onItemSelect={onItemSelect} defaultItems={defaultItems} />
           <ProductDetailsTable />
         </div>
       </div>
