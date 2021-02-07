@@ -41,12 +41,19 @@ const Compare = ({ config, defaultItemData, appContext }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="container mx-auto px-4 py-6">
-        <div className="grid grid-flow-row grid-cols-11 gap-x-4">
-          <ProductSelect onItemSelect={onItemSelect} defaultItems={defaultItemIds} />
-          <ProductDetailsTable selectedItemIds={itemIds} defaultItemData={defaultItemData} />
+      <div className="container mx-auto px-4 py-6 overflow-x-auto">
+        <div className="content">
+          <div className="grid grid-flow-row grid-cols-12 md:grid-cols-11 gap-x-4">
+            <ProductSelect onItemSelect={onItemSelect} defaultItems={defaultItemIds} />
+            <ProductDetailsTable selectedItemIds={itemIds} defaultItemData={defaultItemData} />
+          </div>
         </div>
       </div>
+      <style jsx>{`
+        .content {
+          width: 100%;
+        }
+      `}</style>
     </div>
   );
 };

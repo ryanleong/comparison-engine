@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const colStartClasses = ['col-start-4', 'col-start-8'];
+const colStartClasses = ['md:col-start-4', 'md:col-start-8'];
 
 const ProductSelect = (props) => {
   const { onItemSelect, defaultItems } = props;
@@ -11,7 +11,7 @@ const ProductSelect = (props) => {
   };
 
   return colStartClasses.map((className, idx) => (
-    <div className={`col-span-4 row-start-1 ${className}`} key={className}>
+    <div className={`col-span-6 md:col-span-4 row-start-1 ${className}`} key={className}>
       <select
         className="form-select mb-4 block w-full border rounded"
         onChange={(event) => onSelectUpdate(event, idx)}

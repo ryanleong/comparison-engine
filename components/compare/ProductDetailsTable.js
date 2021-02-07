@@ -60,7 +60,7 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
   const renderSpinner = (fistEleClass, idx) => {
     return (
       <div
-        className={`col-span-4 border-b row-start-2 ${fistEleClass} flex justify-center py-6`}
+        className={`col-span-6 md:col-span-4 border-b row-start-2 ${fistEleClass} flex justify-center py-6`}
         key={`loading_${idx}_meta`}>
         <Spinner />
       </div>
@@ -71,7 +71,7 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
     const itemsList = constructMetaList();
 
     return itemsList.map((item, idx) => {
-      const fistEleClass = idx == 0 ? 'col-start-4' : '';
+      const fistEleClass = idx == 0 ? 'md:col-start-4' : '';
 
       if (item === IS_LOADING) {
         return renderSpinner(fistEleClass, idx);
@@ -82,9 +82,9 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
 
       return (
         <div
-          className={`col-span-4 border-b row-start-2 ${fistEleClass}`}
+          className={`col-span-6 md:col-span-4 border-b row-start-2 ${fistEleClass}`}
           key={`${keyPrefix}_meta`}>
-          <figure className="mb-4 w-full h-72">
+          <figure className="mb-4 w-full h-48 md:h-72">
             <img className="object-contain h-full w-full" src={image} alt="Product" />
           </figure>
 
@@ -104,23 +104,33 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
     return <ul className="list-inside">{itemsEl}</ul>;
   };
 
+  const formatText = (text) => {
+    return text !== '' ? text : '-';
+  };
+
   const renderRows = () => {
     return tableData.reduce((finalRows, row, idx) => {
       const { id, label, item1Spec, item2Spec } = row;
       const fistEleClass = idx == 0 ? 'row-start-3' : '';
-      const detailClass = 'col-span-4 py-6 border-b';
+      const detailClass = 'col-span-6 md:col-span-4 py-6 border-b';
       const keyPrefix = `${id}_${idx}`;
 
       return [
         ...finalRows,
-        <div className={`col-span-3 py-6 ${fistEleClass}`} key={`${keyPrefix}_label`}>
+        <div
+          className={`hidden md:block col-span-3 py-6 ${fistEleClass}`}
+          key={`${keyPrefix}_label`}>
           <span className="text-lg font-bold">{label}</span>
         </div>,
         <div className={detailClass} key={`${keyPrefix}_item1`}>
-          {id !== 'others' ? item1Spec : renderOthersLists(`${keyPrefix}_item1_others`, item1Spec)}
+          {id !== 'others'
+            ? formatText(item1Spec)
+            : renderOthersLists(`${keyPrefix}_item1_others`, item1Spec)}
         </div>,
         <div className={detailClass} key={`${keyPrefix}_item2`}>
-          {id !== 'others' ? item2Spec : renderOthersLists(`${keyPrefix}_item2_others`, item2Spec)}
+          {id !== 'others'
+            ? formatText(item2Spec)
+            : renderOthersLists(`${keyPrefix}_item2_others`, item2Spec)}
         </div>,
       ];
     }, []);
