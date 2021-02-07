@@ -1,6 +1,5 @@
 /* eslint-disable react/display-name */
 import { createContext, useContext, useMemo, useState } from 'react';
-import get from 'lodash/get';
 
 /**
  * Context
@@ -32,8 +31,8 @@ const withItemProvider = (ChildComponent) => (props) => {
   const setupTableData = (items) => {
     // Setup rows
     const rows = config.specLabels.reduce((tableRows, { id, label }) => {
-      const item1Spec = get(items, [0, 'specs', id]);
-      const item2Spec = get(items, [1, 'specs', id]);
+      const item1Spec = items[0]?.specs[id];
+      const item2Spec = items[1]?.specs[id];
 
       if (!item1Spec && !item2Spec) {
         return tableRows;

@@ -1,4 +1,14 @@
 {
+  "siteTitle": "Strollare",
+  "page": {
+    "home": {
+      "title": "Strollare",
+      "description": "",
+      "seo": {
+        "metaDescription": ""
+      }
+    }
+  },
   "specLabels": [
     {
       "id": "dimensionsUnfolded",

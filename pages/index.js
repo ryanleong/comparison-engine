@@ -55,7 +55,7 @@ const Compare = ({ config, itemContext }) => {
   return (
     <div className="comapre-page">
       <Head>
-        <title>Stroller Comparison</title>
+        <title>{config?.page?.home?.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -76,6 +76,7 @@ Compare.propTypes = {
   }).isRequired,
   config: PropTypes.shape({
     specLabels: PropTypes.array,
+    page: PropTypes.object,
   }).isRequired,
 };
 
