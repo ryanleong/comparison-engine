@@ -6,8 +6,8 @@ const useItems = () => {
   return [data, !error && !data, error];
 };
 
-const useItem = (id) => {
-  const { data, error } = useSWR(`/api/item/${id}`);
+const useItem = (id, options = {}) => {
+  const { data, error } = useSWR(`/api/item/${id}`, options);
   return [data, !error && !data, error];
 };
 

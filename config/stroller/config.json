@@ -9,6 +9,7 @@
       }
     }
   },
+  "defaultItemIds": [1, 2],
   "specLabels": [
     {
       "id": "dimensionsUnfolded",

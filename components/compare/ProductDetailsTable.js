@@ -1,13 +1,83 @@
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { withItemsConsumer } from 'contexts/ItemContext';
+import { withAppContextConsumer } from 'contexts/AppContext';
+import { useItem } from 'utils/api';
+import Spinner from 'components/Spinner';
 
-const ProductDetailsTable = ({ itemContext }) => {
-  const { tableData, items } = itemContext;
+const IS_LOADING = 'IS_LOADING';
+
+const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) => {
+  const { config } = appContext;
+  if (!config) return null;
+
+  const [tableData, setTableData] = useState([]);
+
+  // https://github.com/vercel/swr/issues/284
+  const [item1, isLoadingItem1] = useItem(selectedItemIds[0], {
+    initialData: selectedItemIds[0] === config.defaultItemIds[0] ? defaultItemData[0] : undefined,
+  });
+  const [item2, isLoadingItem2] = useItem(selectedItemIds[1], {
+    initialData: selectedItemIds[1] === config.defaultItemIds[1] ? defaultItemData[1] : undefined,
+  });
+
+  const setupTableData = () => {
+    const rows = config.specLabels.reduce((tableRows, { id, label }) => {
+      const item1Spec = item1?.specs[id];
+      const item2Spec = item2?.specs[id];
+
+      if (!item1Spec && !item2Spec) {
+        return tableRows;
+      }
+
+      return [...tableRows, { id, label, item1Spec, item2Spec }];
+    }, []);
+
+    setTableData(rows);
+  };
+
+  useEffect(() => {
+    if (config) {
+      setupTableData();
+    }
+  }, [config, item1, item2]);
+
+  const constructMetaList = () => {
+    const itemsList = [];
+    if (isLoadingItem1) {
+      itemsList.push(IS_LOADING);
+    } else {
+      itemsList.push(item1);
+    }
+    if (isLoadingItem2) {
+      itemsList.push(IS_LOADING);
+    } else {
+      itemsList.push(item2);
+    }
+
+    return itemsList;
+  };
+
+  const renderSpinner = (fistEleClass, idx) => {
+    return (
+      <div
+        className={`col-span-4 border-b row-start-2 ${fistEleClass} flex justify-center py-6`}
+        key={`loading_${idx}_meta`}>
+        <Spinner />
+      </div>
+    );
+  };
 
   const renderItemMeta = () => {
-    return items.map((item, idx) => {
-      const { id, image, model, description } = item;
+    const itemsList = constructMetaList();
+
+    return itemsList.map((item, idx) => {
       const fistEleClass = idx == 0 ? 'col-start-4' : '';
+
+      if (item === IS_LOADING) {
+        return renderSpinner(fistEleClass, idx);
+      }
+
+      const { id, image, model, description } = item;
       const keyPrefix = `${id}_${idx}`;
 
       return (
@@ -47,10 +117,10 @@ const ProductDetailsTable = ({ itemContext }) => {
           <span className="text-lg font-bold">{label}</span>
         </div>,
         <div className={detailClass} key={`${keyPrefix}_item1`}>
-          {id !== 'others' ? item1Spec : renderOthersLists(`${keyPrefix}_others`, item1Spec)}
+          {id !== 'others' ? item1Spec : renderOthersLists(`${keyPrefix}_item1_others`, item1Spec)}
         </div>,
         <div className={detailClass} key={`${keyPrefix}_item2`}>
-          {id !== 'others' ? item2Spec : renderOthersLists(`${keyPrefix}_others`, item2Spec)}
+          {id !== 'others' ? item2Spec : renderOthersLists(`${keyPrefix}_item2_others`, item2Spec)}
         </div>,
       ];
     }, []);
@@ -65,10 +135,11 @@ const ProductDetailsTable = ({ itemContext }) => {
 };
 
 ProductDetailsTable.propTypes = {
-  itemContext: PropTypes.shape({
-    tableData: PropTypes.array,
-    items: PropTypes.array,
+  appContext: PropTypes.shape({
+    config: PropTypes.object,
   }).isRequired,
+  selectedItemIds: PropTypes.array.isRequired,
+  defaultItemData: PropTypes.array,
 };
 
-export default withItemsConsumer(ProductDetailsTable);
+export default withAppContextConsumer(ProductDetailsTable);

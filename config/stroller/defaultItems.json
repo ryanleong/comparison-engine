@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "model": "Uppababy Vista V2",
+      "slug": "uppababy-vista-v2",
+      "brand": "Uppababy",
+      "brandId": 1,
+      "description": "",
+      "image": "images/strollers/uppababy-vista-v2.webp",
+      "specs": {
+        "others": [
+          "Perforated Bassinet mattress pad, vented base and canopy for added breathability",
+          "Extendable, pop out UPF 50+ sunshade",
+          "Depth and ventilation provide an overnight sleep solution",
+          "Zip out, water-repellent inner liner and boot cover are easy to remove and clean",
+          "Ability to transport up to three children with RumbleSeat and PiggyBack accessories",
+          "Full-size reversible Toddler Seat",
+          "Five-point, no-rethread harness",
+          "Extendable canopy with UPF 50+ protection, zip out fabric and mesh panels",
+          "Vented peekaboo window",
+          "One-handed, multi-position recline",
+          "Adjustable handlebar",
+          "All-wheel suspension",
+          "Front wheel locks with visual indicators",
+          "MESA Infant Car Seat attaches directly to stroller without adapters",
+          "100% full-grain leather accents",
+          "Extra-large, easy-access basket with 30 lbs weight limit"
+        ],
+        "dimensionsUnfolded": "36″ L x 25.7″ W x 39.5″ H",
+        "dimensionsFolded": "17.3″ L x 25.7″ W x 33.3″ H",
+        "weight": "Frame + Seat: 27 lbs, Frame: 20 lbs, Seat: 7 lbs, Bassinet: 8.8 lbs",
+        "seatWeight": "",
+        "chassisWeight": "",
+        "maxWeightCapacity": "",
+        "material": "",
+        "heightToHandlebar": "",
+        "childMaxHeight": "",
+        "childAge": "Toddler Seat suitable from 3 months to 50 lbs",
+        "seatBackHeight": "",
+        "heightAdjustableHandle": "",
+        "includesAirPump": "",
+        "airFilledTires": "",
+        "brake": "",
+        "suspension": "",
+        "oneHandledFold": "One-step fold, stands when folded"
+      },
+      "meta": {
+        "seoTitle": "",
+        "seoDescription": ""
+      }
+    },
+    {
+      "id": 2,
+      "model": "Graco Modes Click Connect Travel System",
+      "slug": "graco-modes-click-connect-travel-system",
+      "brand": "Graco",
+      "brandId": 2,
+      "description": "",
+      "image": "images/strollers/graco-modes-click-connect-travel-system.jpg",
+      "specs": {
+        "others": [
+          "Locking single front swivel wheels for improved maneuverability",
+          "Parent's tray with covered storage and 2 deep cup holders",
+          "Removable child's tray and armrests allow for easy in and out",
+          "Convertible 3- or 5-point harness grows with your child",
+          "Stroller holds child up to 50 lb for years of strolling together",
+          "Meets Disney size requirements"
+        ],
+        "dimensionsUnfolded": "27.5″ L x 21.14″ W x 41″ H",
+        "dimensionsFolded": "",
+        "weight": "Stroller: 21.05 lbs",
+        "seatWeight": "",
+        "chassisWeight": "",
+        "maxWeightCapacity": "Up to 50 lb",
+        "material": "",
+        "heightToHandlebar": "",
+        "childMaxHeight": "",
+        "childAge": "",
+        "seatBackHeight": "",
+        "heightAdjustableHandle": "",
+        "includesAirPump": "",
+        "airFilledTires": "",
+        "brake": "",
+        "suspension": "",
+        "oneHandledFold": "One-hand standing fold with automatic storage latch for easy storage"
+      },
+      "meta": {
+        "seoTitle": "",
+        "seoDescription": ""
+      }
+    }
+  ]
+}
