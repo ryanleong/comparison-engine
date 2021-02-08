@@ -1,9 +1,13 @@
 {
   "siteTitle": "Strollare",
+  "theme": {
+    "accentColor": ["red", "400"]
+  },
   "page": {
     "home": {
       "title": "Strollare",
-      "description": "",
+      "usp": ["Find the right", "Stroller"],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa ipsum, vehicula ut erat egestas, auctor consequat nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In mattis et est.",
       "seo": {
         "metaDescription": ""
       }

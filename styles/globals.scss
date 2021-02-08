@@ -1,3 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@400;800&display=swap');
+
+html,
+body {
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
+}

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import config from 'config/stroller/config.json';
 import defaultItems from 'config/stroller/defaultItems.json';
 import withAppContextProvider, { withAppContextConsumer } from 'contexts/AppContext';
+import Hero from 'components/Hero';
 import ProductSelect from 'components/compare/ProductSelect';
 import ProductDetailsTable from 'components/compare/ProductDetailsTable';
 
@@ -41,7 +42,11 @@ const Compare = ({ config, defaultItemData, appContext }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Hero data={config?.page?.home} />
+
       <div className="container mx-auto px-4 py-6 overflow-x-auto">
+        <h2 className="font-semibold uppercase tracking-widest text-accent mb-6">Compare</h2>
+
         <div className="content">
           <div className="grid grid-flow-row grid-cols-12 md:grid-cols-11 gap-x-4">
             <ProductSelect onItemSelect={onItemSelect} defaultItems={defaultItemIds} />
