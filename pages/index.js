@@ -8,6 +8,7 @@ import withAppContextProvider, { withAppContextConsumer } from 'contexts/AppCont
 import Hero from 'components/Hero';
 import ProductSelect from 'components/compare/ProductSelect';
 import ProductDetailsTable from 'components/compare/ProductDetailsTable';
+import Footer from 'components/Footer';
 
 export async function getStaticProps() {
   return {
@@ -54,6 +55,9 @@ const Compare = ({ config, defaultItemData, appContext }) => {
           </div>
         </div>
       </div>
+
+      <Footer data={config?.about} />
+
       <style jsx>{`
         .content {
           width: 100%;
@@ -70,6 +74,7 @@ Compare.propTypes = {
   config: PropTypes.shape({
     specLabels: PropTypes.array,
     page: PropTypes.object,
+    about: PropTypes.object,
     defaultItemIds: PropTypes.array,
   }).isRequired,
   defaultItemData: PropTypes.array,

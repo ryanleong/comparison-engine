@@ -13,6 +13,10 @@
       }
     }
   },
+  "about": {
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa ipsum, vehicula ut erat egestas, auctor consequat nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In mattis et est.",
+    "copyright": "All Rights Reserved"
+  },
   "defaultItemIds": [1, 2],
   "specLabels": [
     {

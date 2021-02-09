@@ -112,7 +112,8 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
     return tableData.reduce((finalRows, row, idx) => {
       const { id, label, item1Spec, item2Spec } = row;
       const fistEleClass = idx == 0 ? 'row-start-3' : '';
-      const detailClass = 'col-span-6 md:col-span-4 py-6 border-b';
+      const borderBottom = idx !== tableData.length - 1 ? 'border-b' : '';
+      const detailClass = `col-span-6 md:col-span-4 py-6 ${borderBottom}`;
       const keyPrefix = `${id}_${idx}`;
 
       return [
