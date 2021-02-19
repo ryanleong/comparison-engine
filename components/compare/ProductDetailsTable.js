@@ -81,16 +81,25 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
       const keyPrefix = `${id}_${idx}`;
 
       return (
-        <div
-          className={`col-span-6 md:col-span-4 border-b row-start-2 ${fistEleClass}`}
-          key={`${keyPrefix}_meta`}>
-          <figure className="mb-4 w-full h-48 md:h-72">
-            <img className="object-contain h-full w-full" src={image} alt="Product" />
-          </figure>
+        <>
+          <div
+            className={`col-span-6 md:col-span-4 border-b row-start-2 ${fistEleClass}`}
+            key={`${keyPrefix}_meta`}>
+            <figure className="mb-4 w-full h-48 md:h-72">
+              <img className="object-contain h-full w-full" src={image} alt="Product" />
+            </figure>
 
-          <h2 className="text-2xl font-semibold mb-2">{model}</h2>
-          <p className="mb-4">{description}</p>
-        </div>
+            <h2 className="text-2xl font-semibold mb-2">{model}</h2>
+            <p className="mb-4">{description}</p>
+          </div>
+
+          {/* Spacer col */}
+          {idx === 0 ? (
+            <div
+              className="row-start-2 col-span-1 col-start-8 hidden lg:block"
+              key={`${keyPrefix}_meta-space`}></div>
+          ) : null}
+        </>
       );
     });
   };
@@ -128,6 +137,9 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
             ? formatText(item1Spec)
             : renderOthersLists(`${keyPrefix}_item1_others`, item1Spec)}
         </div>,
+        <div
+          className="col-span-1 col-start-8 hidden lg:block"
+          key={`${keyPrefix}_item-space`}></div>,
         <div className={detailClass} key={`${keyPrefix}_item2`}>
           {id !== 'others'
             ? formatText(item2Spec)
