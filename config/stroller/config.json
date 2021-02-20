@@ -7,14 +7,14 @@
     "home": {
       "title": "Strollare",
       "usp": ["Find the right", "Stroller"],
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa ipsum, vehicula ut erat egestas, auctor consequat nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In mattis et est.",
+      "description": "Whether you're headed for the mall, or a stroll in the park, a stroller is essential for life on the go with your baby. Stroller helps you compare and find the best baby stroller to fit your needs.",
       "seo": {
         "metaDescription": ""
       }
     }
   },
   "about": {
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa ipsum, vehicula ut erat egestas, auctor consequat nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In mattis et est.",
+    "description": "Strollare aims to aid you in your decision to purchase the right stroller for you baby. By having information on the various side by side, this should help you make a better comparison.",
     "copyright": "All Rights Reserved"
   },
   "defaultItemIds": [1, 2],
