@@ -1,5 +1,5 @@
 {
-  "siteTitle": "Strollare",
+  "siteTitle": "Strollare | Find and compare baby strollers",
   "theme": {
     "accentColor": ["red", "400"]
   },
@@ -7,9 +7,13 @@
     "home": {
       "title": "Strollare",
       "usp": ["Find the right", "Stroller"],
-      "description": "Whether you're headed for the mall, or a stroll in the park, a stroller is essential for life on the go with your baby. Stroller helps you compare and find the best baby stroller to fit your needs.",
+      "description": "Whether you are headed for the mall, or a stroll in the park, a stroller is essential for life on the go with your baby. Stroller helps you compare and find the best baby stroller to fit your needs.",
       "seo": {
-        "metaDescription": ""
+        "metaDescription": "Whether you are headed for the mall, or a stroll in the park, a stroller is essential for life on the go with your baby. Stroller helps you compare and find the best baby stroller to fit your needs.",
+        "ogTitle": "Strollare",
+        "ogDescription": "Whether you are headed for the mall, or a stroll in the park, a stroller is essential for life on the go with your baby. Stroller helps you compare and find the best baby stroller to fit your needs.",
+        "ogImage": "https://stroller-comparison.vercel.app/images/strollers/ogImage.jpg",
+        "ogType": "website"
       }
     }
   },

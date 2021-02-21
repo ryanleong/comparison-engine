@@ -41,6 +41,10 @@ const Compare = ({ config, defaultItemData, appContext }) => {
       <Head>
         <title>{config?.page?.home?.title}</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content={config?.page?.home?.seo?.metaDescription} />
+        <meta property="og:title" content={config?.page?.home?.seo?.ogTitle} />
+        <meta property="og:description" content={config?.page?.home?.seo?.ogDescription} />
+        <meta property="og:image" content={config?.page?.home?.seo?.ogImage} />
       </Head>
 
       <Hero data={config?.page?.home} />
