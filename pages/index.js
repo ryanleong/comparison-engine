@@ -2,8 +2,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import config from 'config/stroller/config.json';
-import { getItems, getItem } from 'databases';
+import { getConfig, getItems } from 'utils/firebase';
 import withAppContextProvider, { withAppContextConsumer } from 'contexts/AppContext';
 import Hero from 'components/Hero';
 import ProductSelect from 'components/compare/ProductSelect';
@@ -11,18 +10,15 @@ import ProductDetailsTable from 'components/compare/ProductDetailsTable';
 import Footer from 'components/Footer';
 
 export async function getStaticProps() {
+  const config = await getConfig();
   const { defaultItemIds } = config;
-  const [itemsList, firstItem, secondItem] = await Promise.all([
-    getItems(),
-    ...defaultItemIds.map((id) => getItem(id)),
-  ]);
+
+  const items = await getItems();
+  const defaultItemData = items.filter(({ id }) => defaultItemIds.includes(id));
+  const itemsList = items.map(({ id, model }) => ({ id, model }));
 
   return {
-    props: {
-      config,
-      itemsList,
-      defaultItemData: [firstItem, secondItem],
-    },
+    props: { config, itemsList, defaultItemData },
   };
 }
 

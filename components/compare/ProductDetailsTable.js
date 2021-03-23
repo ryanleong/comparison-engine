@@ -77,7 +77,7 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
         return renderSpinner(fistEleClass, idx);
       }
 
-      const { id, thumbnail, model, description } = item;
+      const { id, image, model, description } = item;
       const keyPrefix = `${id}_${idx}`;
 
       return (
@@ -85,7 +85,7 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
           className={`col-span-6 md:col-span-4 border-b row-start-2 ${fistEleClass}`}
           key={`${keyPrefix}_meta`}>
           <figure className="mb-4 w-full h-48 md:h-72">
-            <img className="object-contain h-full w-full" src={thumbnail} alt="Product" />
+            <img className="object-contain h-full w-full" src={image} alt="Product" />
           </figure>
 
           <h2 className="text-2xl font-semibold mb-2">{model}</h2>

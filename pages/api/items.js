@@ -1,4 +1,4 @@
-import { getItems } from 'databases';
+import { getItems } from 'utils/firebase';
 
 export default async (req, res) => {
   if (req.method === 'GET') {
