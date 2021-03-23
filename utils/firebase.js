@@ -1,5 +1,13 @@
 import firebase from 'firebase/app';
 import 'firebase/database';
+import LRU from 'lru-cache';
+
+const options = {
+  max: 500,
+  maxAge: 1000 * 60 * 60,
+};
+
+const cache = new LRU(options);
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -26,11 +34,22 @@ const initFirebase = (config) => {
   }
 };
 
+/**
+ * Get config
+ * NOTE: Should only be called at build time
+ */
 const getConfig = async () => {
+  const KEY = 'config';
+  const cachedValue = cache.get(KEY);
+
+  if (cachedValue) {
+    return cachedValue;
+  }
+
   try {
     initFirebase(firebaseConfig);
     const db = firebase.database();
-    const snapshot = await db.ref().child('config').get();
+    const snapshot = await db.ref().child(KEY).get();
     return snapshot.val();
   } catch (error) {
     console.error(error);
@@ -39,6 +58,7 @@ const getConfig = async () => {
 
 /**
  * Get list of items for listing
+ * NOTE: does not read from cache and should only be used at build time
  */
 const getItems = async () => {
   try {
@@ -59,6 +79,7 @@ const getItems = async () => {
         return itemList;
       }, [])
       .sort((a, b) => (a.id > b.id ? 1 : -1));
+
     return items;
   } catch (error) {
     console.error(error);
@@ -70,11 +91,22 @@ const getItems = async () => {
  * @param {Number} id
  */
 const getItem = async (id) => {
+  const KEY = `items/${id}`;
+  const cachedValue = cache.get(KEY);
+
+  if (cachedValue) {
+    return cachedValue;
+  }
+
   try {
     initFirebase(firebaseConfig);
     const db = firebase.database();
     const snapshot = await db.ref().child('items').child(id).get();
-    return snapshot.val();
+    const item = snapshot.val();
+
+    cache.set(KEY, item);
+
+    return item;
   } catch (error) {
     console.error(error);
   }
