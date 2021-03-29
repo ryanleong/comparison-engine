@@ -2,8 +2,7 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import config from 'config/stroller/config.json';
-import defaultItems from 'config/stroller/defaultItems.json';
+import { getConfig, getItems } from 'utils/firebase';
 import withAppContextProvider, { withAppContextConsumer } from 'contexts/AppContext';
 import Hero from 'components/Hero';
 import ProductSelect from 'components/compare/ProductSelect';
@@ -11,15 +10,19 @@ import ProductDetailsTable from 'components/compare/ProductDetailsTable';
 import Footer from 'components/Footer';
 
 export async function getStaticProps() {
+  const config = await getConfig();
+  const { defaultItemIds } = config;
+
+  const items = await getItems();
+  const defaultItemData = items.filter(({ id }) => defaultItemIds.includes(id));
+  const itemsList = items.map(({ id, model }) => ({ id, model }));
+
   return {
-    props: {
-      config,
-      defaultItemData: defaultItems?.items,
-    },
+    props: { config, itemsList, defaultItemData },
   };
 }
 
-const Compare = ({ config, defaultItemData, appContext }) => {
+const Compare = ({ config, itemsList, defaultItemData, appContext }) => {
   const { defaultItemIds } = config;
   const [itemIds, setItemIds] = useState(defaultItemIds);
 
@@ -54,7 +57,11 @@ const Compare = ({ config, defaultItemData, appContext }) => {
 
         <div className="content">
           <div className="grid grid-flow-row grid-cols-12 gap-x-4">
-            <ProductSelect onItemSelect={onItemSelect} defaultItems={defaultItemIds} />
+            <ProductSelect
+              itemsList={itemsList}
+              onItemSelect={onItemSelect}
+              defaultItems={defaultItemIds}
+            />
             <ProductDetailsTable selectedItemIds={itemIds} defaultItemData={defaultItemData} />
           </div>
         </div>
@@ -81,6 +88,7 @@ Compare.propTypes = {
     about: PropTypes.object,
     defaultItemIds: PropTypes.array,
   }).isRequired,
+  itemsList: PropTypes.arrayOf(PropTypes.object).isRequired,
   defaultItemData: PropTypes.array,
 };
 

@@ -36,7 +36,7 @@ const ProductDetailsTable = ({ appContext, selectedItemIds, defaultItemData }) =
   };
 
   useEffect(() => {
-    if (config) {
+    if (config && item1 && item2) {
       setupTableData();
     }
   }, [config, item1, item2]);

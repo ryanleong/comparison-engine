@@ -1,12 +1,9 @@
-import itemsList from 'config/stroller/items.json';
+import { getItem } from 'utils/firebase';
 
-const { items } = itemsList;
-
-export default (req, res) => {
+export default async (req, res) => {
   if (req.method === 'GET') {
     const { id: itemId } = req.query;
-
-    const item = items.find(({ id }) => id === parseInt(itemId, 10));
+    const item = await getItem(itemId);
 
     if (item) {
       res.statusCode = 200;

@@ -1,6 +1,6 @@
 const get = require('lodash/get');
 const colors = require('tailwindcss/colors');
-const config = require('./config/stroller/config.json');
+const config = require('./config/strollare.json');
 
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -12,7 +12,7 @@ module.exports = {
     },
     colors: {
       ...colors,
-      accent: get(colors, config.theme.accentColor),
+      accent: get(colors, config.config.theme.accentColor),
     },
     extend: {},
   },

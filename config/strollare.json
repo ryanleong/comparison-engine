@@ -1,6 +1,125 @@
 {
-  "items": [
-    {
+  "config": {
+    "siteTitle": "Strollare | Find and compare baby strollers",
+    "theme": {
+      "accentColor": ["red", "400"]
+    },
+    "page": {
+      "home": {
+        "title": "Strollare",
+        "usp": ["Find the right", "Stroller"],
+        "description": "Whether you are headed for the mall, or a stroll in the park, a stroller is essential for life on the go with your baby. Stroller helps you compare and find the best baby stroller to fit your needs.",
+        "seo": {
+          "metaDescription": "Whether you are headed for the mall, or a stroll in the park, a stroller is essential for life on the go with your baby. Stroller helps you compare and find the best baby stroller to fit your needs.",
+          "ogTitle": "Strollare",
+          "ogDescription": "Whether you are headed for the mall, or a stroll in the park, a stroller is essential for life on the go with your baby. Stroller helps you compare and find the best baby stroller to fit your needs.",
+          "ogImage": "https://stroller-comparison.vercel.app/images/strollers/ogImage.jpg",
+          "ogType": "website"
+        }
+      }
+    },
+    "about": {
+      "description": "Strollare aims to aid you in your decision to purchase the right stroller for you baby. By having information on the various side by side, this should help you make a better comparison.",
+      "copyright": "All Rights Reserved"
+    },
+    "defaultItemIds": [1, 2],
+    "specLabels": [
+      {
+        "id": "dimensionsUnfolded",
+        "label": "Dimensions (Unfolded)"
+      },
+      {
+        "id": "dimensionsFolded",
+        "label": "Dimensions (Folded)"
+      },
+      {
+        "id": "dimensionsFoldedWithoutSeat",
+        "label": "Dimensions (Folded without seat)"
+      },
+      {
+        "id": "weight",
+        "label": "Weight"
+      },
+      {
+        "id": "maxWeightCapacity",
+        "label": "Max Weight Capacity"
+      },
+      {
+        "id": "oneHandledFold",
+        "label": "One Handed fold"
+      },
+      {
+        "id": "numOfWheels",
+        "label": "Wheels"
+      },
+      {
+        "id": "suspension",
+        "label": "Suspension"
+      },
+      {
+        "id": "brake",
+        "label": "Brake"
+      },
+      {
+        "id": "harness",
+        "label": "Harness"
+      },
+      {
+        "id": "childMaxHeight",
+        "label": "Max Child Height"
+      },
+      {
+        "id": "childAge",
+        "label": "Child Age"
+      },
+      {
+        "id": "heightAdjustableHandle",
+        "label": "Adjustable Handle bar"
+      },
+      {
+        "id": "seatBackHeight",
+        "label": "Height of seat back"
+      },
+      {
+        "id": "airFilledTires",
+        "label": "Air-filled Tires"
+      },
+      {
+        "id": "includesAirPump",
+        "label": "Includes Air Pump"
+      },
+      {
+        "id": "heightToHandlebar",
+        "label": "Handlebar Height"
+      },
+      {
+        "id": "carSeatCompatible",
+        "label": "Convetable to car seat"
+      },
+      {
+        "id": "reversibleSeat",
+        "label": "Reversible seat"
+      },
+      {
+        "id": "seatWeight",
+        "label": "Seat Weight"
+      },
+      {
+        "id": "chassisWeight",
+        "label": "Chassis Weight"
+      },
+      {
+        "id": "material",
+        "label": "Material"
+      },
+      {
+        "id": "others",
+        "label": "Others"
+      }
+    ]
+  },
+  "items": {
+    "1": {
       "id": 1,
       "model": "Uppababy Vista V2",
       "slug": "uppababy-vista-v2",
@@ -50,7 +169,7 @@
         "seoDescription": ""
       }
     },
-    {
+    "2": {
       "id": 2,
       "model": "Graco Modes Click Connect Travel System",
       "slug": "graco-modes-click-connect-travel-system",
@@ -90,10 +209,10 @@
         "seoDescription": ""
       }
     },
-    {
+    "3": {
       "id": 3,
       "model": "Doona Infant Car Seat/Stroller",
-      "slug": "",
+      "slug": "doona-infant-car-seat-stroller",
       "brand": "Doona",
       "brandId": 3,
       "description": "",
@@ -123,10 +242,10 @@
         "seoDescription": ""
       }
     },
-    {
+    "4": {
       "id": 4,
       "model": "Summer Infant 3Dlite Convenience Stroller",
-      "slug": "",
+      "slug": "summer-infant-3dlite-convenience-stroller",
       "brand": "Summer Infant",
       "brandId": 4,
       "description": "",
@@ -165,7 +284,7 @@
         "seoDescription": ""
       }
     },
-    {
+    "5": {
       "id": 5,
       "model": "Nuna Demi Grow",
       "slug": "nuna-demi-grow",
@@ -217,10 +336,10 @@
         "seoDescription": ""
       }
     },
-    {
+    "6": {
       "id": 6,
       "model": "Bob Gear Revo Flex 3.0 Jogging Stroller",
-      "slug": "",
+      "slug": "bob-gear-revo-flex-30-jogging-stroller",
       "brand": "Bob Gear",
       "brandId": 6,
       "description": "",
@@ -272,10 +391,10 @@
         "seoDescription": ""
       }
     },
-    {
+    "7": {
       "id": 7,
       "model": "Baby Jogger City Mini Double Stroller",
-      "slug": "",
+      "slug": "baby-jogger-city-mini-double-stroller",
       "brand": "Baby Jogger",
       "brandId": 7,
       "description": "",
@@ -312,7 +431,7 @@
         "seoDescription": ""
       }
     },
-    {
+    "8": {
       "id": 8,
       "model": "Chicco Bravo LE",
       "slug": "chicco-bravo-le",
@@ -358,7 +477,7 @@
         "seoDescription": ""
       }
     },
-    {
+    "9": {
       "id": 9,
       "model": "Bugaboo Donkey 3 Mono Stroller",
       "slug": "bugaboo-donkey-3-mono-stroller",
@@ -407,7 +526,7 @@
         "seoDescription": ""
       }
     },
-    {
+    "10": {
       "id": 10,
       "model": "Babyzen Yoyo+ Stroller",
       "slug": "babyzen-yoyo-stroller",
@@ -457,7 +576,7 @@
         "seoDescription": ""
       }
     },
-    {
+    "11": {
       "id": 11,
       "model": "Maclaren Mark II",
       "slug": "maclaren-mark-ii",
@@ -502,7 +621,7 @@
         "seoDescription": ""
       }
     },
-    {
+    "12": {
       "id": 12,
       "model": "Joie Pact Lite Stroller",
       "slug": "joie-pact-lite-stroller",
@@ -549,10 +668,10 @@
         "seoDescription": ""
       }
     },
-    {
+    "13": {
       "id": 13,
       "model": "BP Alex Lightweight Stroller",
-      "slug": "",
+      "slug": "bp-alex-lightweight-stroller",
       "brand": "BP Alex",
       "brandId": 13,
       "description": "",
@@ -595,7 +714,7 @@
         "seoDescription": ""
       }
     },
-    {
+    "14": {
       "id": 14,
       "model": "Baobaohao Good Baby",
       "slug": "baobaohao-good-baby",
@@ -629,5 +748,5 @@
         "seoDescription": ""
       }
     }
-  ]
+  }
 }
